@@ -68,10 +68,9 @@ public class Foreground extends Service  {
             @Override
             public void run() {
                 // Your periodic task here
-                Log.d("ForegroundService", "Task is running");
                 readSensor();
                 updateNotification();
-                Log.d("ForegroundService", "Gap");
+
 
 
                 // Re-run the task after 1 second (1000 ms)
@@ -90,7 +89,7 @@ public class Foreground extends Service  {
                 new Runnable() {
                     @Override
                     public void run() {
-                        Log.d("TAG","Foreground service running");
+                       // Log.d("TAG","Foreground service running");
                         readSensor();
                         updateNotification();
 
@@ -134,7 +133,7 @@ public class Foreground extends Service  {
 
     // Add this method to update notification content
     private void updateNotification() {
-        Log.d("ForegroundService", "Update"+ current_light);
+
         String sensorText = "Light Sensor: " + current_light +
         "\nProximity sensor: " + current_proximity +
                 "\nAccelerometer (x, y, z): " + current_accelerometer_x + ", " +
@@ -146,7 +145,7 @@ public class Foreground extends Service  {
                 .setContentText(sensorText);
 
         notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build());
-        Log.d("ForegroundService", "Update done");
+//        Log.d("ForegroundService", "Update done");
 
     }
 
